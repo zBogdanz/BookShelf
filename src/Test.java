@@ -6,30 +6,37 @@ public class Test {
 
         Book book1 = new Book ("Dune","Frank Herbert","SF");
         Book book2 = new Book ("Ion","Marin Preda","drama");
-        Book book3 = new Book("I.T.","Marin Preda","S.F.");
+        Book book3 = new Book("I.T.","Stephen King","SF");
         ArrayList<Book> books = new ArrayList<> ();
 
-        Bookshelf raftSf = new Bookshelf(books);
-        raftSf.addBook (book2);
-        if (raftSf.contains (book1)){
+        Bookshelf raft = new Bookshelf(books);
+        raft.addBook (book2);
+        if (raft.contains (book1)){
             System.out.println ("Cartea este deja in raft");
         } else{
             //System.out.println ("Cartea nu e in raft");
-            raftSf.addBook (book1);
+            raft.addBook (book1);
 
         }
-        raftSf.addBook (book3);
+        raft.addBook (book3);
 
-        raftSf.selecteazaCarte ();
+        raft.selecteazaCarte ();
 
-        raftSf.existingAutor (book1.getAutor ());
+        raft.existingAutor (book1.getAutor ());
 
-        int nrCarti=raftSf.nrCartiAutor("Marin Preda");
+        int nrCarti=raft.nrCartiAutor("Marin Preda");
         System.out.print(nrCarti);
         System.out.println(" carti de acest autor");
-        ArrayList<Book> cartiMP = raftSf.cartiDeAutor ("Marin Preda");
+
+        ArrayList<Book> cartiMP = raft.cartiDeAutor ("Marin Preda");
         System.out.println ();
+        System.out.println ("Avem urmatoarele carti de acest autor ");
         System.out.println (cartiMP);
+
+        ArrayList<String> genuri = raft.cartiGen ();
+        System.out.println ();
+        System.out.println ("Avem urmatoarele genuri de carti ");
+        System.out.println (genuri);
 
         //sf.afiseaza (0);
         //sf.afiseaza (1);

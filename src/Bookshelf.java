@@ -71,5 +71,18 @@ public class Bookshelf {
         return sir;
     }
 
+    public ArrayList<String> cartiGen(){
+        ArrayList<String> sir = new ArrayList<> ();
+        for (int i = 0; i < carti.size (); i++) {
+            if (sir.contains (carti.get (i).getGen ())) {
+                continue;
+            }
+                else{
+                sir.add (carti.get (i).getGen ());
+            }
+        }
+        return sir;
+    }
+
 }
 
