@@ -4,29 +4,34 @@ public class Test {
 
     public static void main(String[] args) {
 
-        Book book1 = new Book ("Dune","Frank Herbert","SF");
-        Book book2 = new Book ("Ion","Marin Preda","drama");
-        Book book3 = new Book("I.T.","Stephen King","SF");
         ArrayList<Book> books = new ArrayList<> ();
+        ArrayList<Book> books2 = new ArrayList<> ();
 
-        Bookshelf raft = new Bookshelf(books);
+        Book book1 = new Book ("Dune", "Frank Herbert", "SF");
+        Book book2 = new Book ("Ion", "Marin Preda", "drama");
+        Book book3 = new Book ("I.T.", "Stephen King", "SF");
+        Book book4 = new Book ("Christine", "Stephen King", "SF");
+        Book book5 = new Book ("Ion", "Marin Preda", "drama");
+        Book book6 = new Book ("Dune", "Frank Herbert", "SF");
+
+        Bookshelf raft = new Bookshelf (books);
+        Bookshelf raft2 = new Bookshelf (books2);
+
+        raft2.addBook (book4);
+        raft2.addBook (book5);
+        raft2.addBook (book6);
+
         raft.addBook (book2);
-        if (raft.contains (book1)){
-            System.out.println ("Cartea este deja in raft");
-        } else{
-            //System.out.println ("Cartea nu e in raft");
-            raft.addBook (book1);
-
-        }
+        raft.addBook (book1);
         raft.addBook (book3);
 
         raft.selecteazaCarte ();
 
         raft.existingAutor (book1.getAutor ());
 
-        int nrCarti=raft.nrCartiAutor("Marin Preda");
-        System.out.print(nrCarti);
-        System.out.println(" carti de acest autor");
+        int nrCarti = raft.nrCartiAutor ("Marin Preda");
+        System.out.print (nrCarti);
+        System.out.println (" carti de acest autor");
 
         ArrayList<Book> cartiMP = raft.cartiDeAutor ("Marin Preda");
         System.out.println ();
@@ -34,14 +39,14 @@ public class Test {
         System.out.println (cartiMP);
 
         ArrayList<String> genuri = raft.cartiGen ();
+        int[] nrGenuri = raft.booksCountGenre ();
         System.out.println ();
         System.out.println ("Avem urmatoarele genuri de carti ");
-        System.out.println (genuri);
+        for (int i = 0; i < genuri.size (); i++) {
+            System.out.println ("Exista " + nrGenuri[i] + " carti de genul " + genuri.get (i));
+        }
 
-        //sf.afiseaza (0);
-        //sf.afiseaza (1);
-        //sf.removeBook (book1);
-
-
+        ArrayList<Book> sameBooks = raft.compareTo (raft2);
+        System.out.println ("Cartile comune sunt " +sameBooks);
     }
 }
